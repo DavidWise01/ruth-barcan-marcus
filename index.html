@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruth Barcan Marcus — quantified modal logic</title>
+<meta name="description" content="LOGIKĒ XXIV — Ruth Barcan Marcus (1921–2012). At 25 she published the first systems of QUANTIFIED MODAL LOGIC (1946), combining 'necessarily/possibly' with 'for all/there exists' — and stated the Barcan formula (∀x□Fx → □∀xFx), the principle governing how necessity and quantification interact, a decade before possible-worlds semantics existed. She also pioneered direct reference (names as 'tags'), anticipating Kripke. Live: a possible-worlds model where you set what's true in each world and watch the Barcan formula hold while ◇ and ∀ refuse to commute. Honest: a real priority she had to defend; the formula and the field are hers. David Lee Wise, two-layer honest.">
+<style>
+  :root{--bg:#0c0f17;--panel:#121622;--panel2:#19202f;--edge:#2a3346;--ink:#ede6d6;--dim:#b3ad9a;--faint:#7c7660;
+    --ochre:#d9b66a;--ochre2:#f0d79a;--proof:#5ad1ff;--proof2:#a7e6ff;--one:#7fe0a0;--zero:#fb7185;--amber:#fbbf24;--ember:#fb923c;
+    --mono:'SFMono-Regular',ui-monospace,'Cascadia Code',Menlo,Consolas,monospace;--serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.58;background-image:radial-gradient(1100px 560px at 75% -10%,#1c2436 0%,transparent 55%),radial-gradient(900px 500px at 0% 100%,#14110a 0%,transparent 55%);}
+  .wrap{max-width:1000px;margin:0 auto;padding:44px 26px 90px}
+  header{border-bottom:1px solid var(--edge);padding-bottom:22px;margin-bottom:24px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ochre);opacity:.95}
+  h1{font-family:Georgia,serif;font-size:38px;line-height:1.08;margin:.3em 0 .14em;font-weight:600}h1 em{color:var(--ochre2);font-style:italic}
+  .who{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.04em}
+  .sub{color:var(--dim);font-size:16px;max-width:74ch;margin-top:14px}.sub b{color:var(--ink)}
+  .verdicts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:22px 0}@media(max-width:720px){.verdicts{grid-template-columns:1fr}}
+  .vc{border:1px solid var(--edge);border-radius:11px;padding:13px 15px;border-top-width:3px;background:rgba(18,22,34,.6)}
+  .vc .badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em}
+  .vc.s{border-top-color:var(--one)}.vc.s .badge{color:var(--one)} .vc.m{border-top-color:var(--amber)}.vc.m .badge{color:var(--amber)} .vc.f{border-top-color:var(--ember)}.vc.f .badge{color:var(--ember)}
+  .vc p{font-size:12px;color:var(--dim);margin:6px 0 0;line-height:1.45}.vc p b{color:var(--ink)}
+  section{margin:36px 0}
+  h2{font-size:13px;font-family:var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--ochre2);border-left:2px solid var(--ochre);padding-left:11px;margin:0 0 6px}
+  .lede{color:var(--dim);font-size:15px;margin:0 0 18px;max-width:80ch}
+  .panel{background:linear-gradient(180deg,var(--panel),#0a0d14);border:1px solid var(--edge);border-radius:14px;padding:20px;box-shadow:0 24px 60px -40px #000}
+  .worlds{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:4px 0 6px}
+  .world{border:1px solid var(--edge);border-radius:11px;padding:12px 14px;background:rgba(0,0,0,.16);text-align:center}
+  .world .wn{font-family:var(--mono);font-size:11px;color:var(--ochre);letter-spacing:.1em}
+  .world .inds{display:flex;gap:7px;margin-top:8px}
+  .cellF{width:46px;height:40px;border:1px solid var(--edge);border-radius:7px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--mono);font-size:13px;color:var(--zero);background:#0c1622}
+  .cellF.t{color:var(--one);border-color:#2f5b40;background:#0d1a12}
+  .pairs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}@media(max-width:620px){.pairs{grid-template-columns:1fr}}
+  .pr{border:1px solid var(--edge);border-radius:10px;padding:12px;background:rgba(0,0,0,.14)}
+  .pr .ph{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+  .pr .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;margin:4px 0;color:var(--dim)}
+  .pr .row b.t{color:var(--one)}.pr .row b.f{color:var(--zero)}
+  .pr .rel{font-family:var(--mono);font-size:12px;margin-top:8px;text-align:center}
+  .pr.eq{border-color:#2f5b40}.pr.neq{border-color:var(--amber)}
+  .note{color:var(--dim);font-size:13.5px;border-left:2px solid var(--edge);padding-left:13px;margin:16px 0 0}.note b{color:var(--ink)}
+  .thm{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}@media(max-width:620px){.thm{grid-template-columns:1fr}}
+  .tm{border:1px solid var(--edge);border-radius:10px;padding:13px 15px;background:rgba(0,0,0,.14)}.tm b{color:var(--ochre2);font-family:var(--mono);font-size:11px}.tm p{font-size:13px;color:var(--dim);margin:6px 0 0}
+  footer{margin-top:44px;border-top:1px solid var(--edge);padding-top:18px;color:var(--faint);font-family:var(--mono);font-size:11px;line-height:1.7}
+  footer a,.bar2 a{color:var(--ochre)}.bar2{font-family:var(--mono);font-size:11.5px;margin-bottom:16px}.bar2 a{text-decoration:none;border-bottom:1px dotted #4a4126}
+  code{font-family:var(--mono);color:var(--ochre2);background:#15120a;padding:1px 5px;border-radius:5px}
+  blockquote{margin:14px 0;padding:10px 16px;border-left:3px solid var(--ochre);color:var(--ink);font-style:italic;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bar2"><a href="https://davidwise01.github.io/ud0/">◄ UD0</a> &nbsp; <a href="https://davidwise01.github.io/julia-robinson/">← Robinson</a> &nbsp; LOGIKĒ · XXIV · the other half</div>
+<header>
+  <div class="kicker">LOGIKĒ · XXIV · quantified modal logic</div>
+  <h1>Ruth <em>Barcan Marcus</em></h1>
+  <div class="who">1921 – 2012 · New York &amp; Yale · founder of quantified modal logic · the Barcan formula</div>
+  <div class="sub">Logic had two great extensions running on separate tracks: <b>quantifiers</b> ([[gottlob-frege]]'s ∀ "for all" and ∃ "there exists") and <b>modality</b> ("necessarily" □, "possibly" ◇). In 1946, at twenty-five, Ruth Barcan was the first to <em>combine</em> them rigorously — the first formal systems of <b>quantified modal logic</b> — and to ask the question that combination forces: when you have both, <b>does the order matter?</b> Her answer is the <b>Barcan formula</b>, <code>∀x□Fx → □∀xFx</code> — the principle that governs how necessity and "for all" slide past each other. She wrote it down a decade before the possible-worlds semantics that would explain it existed; today it is a cornerstone of modal logic, the logic of necessity, time, knowledge, and provability.</div>
+</header>
+<div class="verdicts">
+  <div class="vc s"><span class="badge">✓ STRONG</span><p><b>A field she opened.</b> The first rigorous quantified modal logic (1946) and the Barcan formula are foundational and bear her name; modal logic underlies the semantics of necessity, time, knowledge, obligation, and program verification.</p></div>
+  <div class="vc m"><span class="badge">◐ SEMANTICS CAME LATER</span><p><b>Syntax first, meaning after.</b> She gave the axioms; the possible-worlds <em>semantics</em> that interpret them came in the late 1950s–60s (Kripke and others). The formula is hers; its now-standard picture was filled in later.</p></div>
+  <div class="vc f"><span class="badge">◔ PRIORITY SHE HAD TO DEFEND</span><p><b>Credit, contested and corrected.</b> Some attributed her ideas (direct reference, the formula) to later men; she had to insist, correctly, on her 1946 priority. The record now plainly credits her.</p></div>
+</div>
+
+<section>
+  <h2>I · Possible worlds — does □ commute with ∀?</h2>
+  <p class="lede">Picture several <b>possible worlds</b> and two individuals, <b>a</b> and <b>b</b>. Click to set, in each world, whether each individual has property <b>F</b>. Then read off how the modal operators and quantifiers combine. The Barcan formula concerns one pair — <code>∀x□Fx</code> ("each thing is necessarily F") versus <code>□∀xFx</code> ("necessarily, everything is F") — and a different pair shows that other orders <em>don't</em> commute at all.</p>
+  <div class="panel">
+    <div class="worlds" id="worlds"></div>
+    <div class="pairs">
+      <div class="pr" id="prBarcan">
+        <div class="ph">the Barcan pair — □ and ∀</div>
+        <div class="row"><span>∀x □Fx &nbsp;<span style="color:var(--faint)">(each is necessarily F)</span></span><b id="fb"></b></div>
+        <div class="row"><span>□ ∀xFx &nbsp;<span style="color:var(--faint)">(necessarily all are F)</span></span><b id="bf"></b></div>
+        <div class="rel" id="relB"></div>
+      </div>
+      <div class="pr" id="prOrder">
+        <div class="ph">the other order — ◇ and ∀</div>
+        <div class="row"><span>◇ ∀xFx &nbsp;<span style="color:var(--faint)">(some world: all F)</span></span><b id="df"></b></div>
+        <div class="row"><span>∀x ◇Fx &nbsp;<span style="color:var(--faint)">(each is F somewhere)</span></span><b id="fd"></b></div>
+        <div class="rel" id="relO"></div>
+      </div>
+    </div>
+    <div class="note">The <b>Barcan formula</b> says ∀x□Fx and □∀xFx march together (with a constant set of individuals across worlds, they are equivalent — toggle around and they never disagree). But ◇ and ∀ are a different story: "there's a world where everything is F" is far stronger than "everything is F in <em>some</em> world or other" — set <b>a</b> true only in W1 and <b>b</b> true only in W2 to split them. ⚑ This is the modal cousin of [[charles-peirce]]'s and [[gottlob-frege]]'s lesson that <em>quantifier order matters</em> — now tangled with necessity, the exact knot Barcan untied first.</div>
+  </div>
+  <blockquote>"Whatever it is to be a thing… does not change from world to world." <span style="color:var(--faint);font-style:normal;font-size:12px">— on the constant-domain reading behind the Barcan formula</span></blockquote>
+</section>
+
+<section>
+  <h2>II · What the formula means — and when it fails</h2>
+  <div class="thm">
+    <div class="tm"><b>QUANTIFIED MODAL LOGIC (1946)</b><p>The first rigorous union of quantifiers and modality. The framework for reasoning about what must, might, or always will be — across time, knowledge, obligation, and proof.</p></div>
+    <div class="tm"><b>THE BARCAN FORMULA</b><p>∀x□Fx → □∀xFx. It holds exactly when the individuals are the <em>same</em> across all possible worlds — so the formula is really a claim about whether existence is necessary.</p></div>
+  </div>
+  <p class="lede" style="margin-top:16px">The deep content is metaphysical. The Barcan formula holds when every world has the <b>same individuals</b> (a "constant domain") — and fails if new things can exist in other possible worlds (a "varying domain"). So a dry-looking axiom turns out to <em>encode a question about being</em>: must exactly the same things exist no matter how the world had gone? Barcan's logic made that question precise and answerable, and her work on <b>direct reference</b> — treating names as bare "tags" that pick out the same object in every world — anticipated the theory of reference usually credited to Saul Kripke fifteen years later. The machinery of necessity in [[psephos-processors-domain]]'s verification tools, in the logic of knowledge, and in temporal reasoning all descends from the systems she opened.</p>
+</section>
+
+<section>
+  <h2>III · The opener, the priority, the woman</h2>
+  <p class="note" style="border-color:var(--amber)"><b style="color:var(--amber)">Gate kept on.</b> The achievement is <b>real and first</b>: Ruth Barcan's 1946 papers are the earliest rigorous systems of quantified modal logic, and the Barcan formula carries her name by right. Two honest qualifications. First, on <b>semantics</b>: she gave the <em>axiomatics</em>; the possible-worlds <em>interpretation</em> that makes the formula intuitive (the picture used above) was developed afterward, chiefly by Kripke and others in the late 1950s and 60s — so she opened the syntax, and the meaning was filled in later (a normal division of labour, not a deduction from her work). Second, on <b>credit</b>: Barcan Marcus's ideas on <em>direct reference</em> and the necessity of identity genuinely anticipated themes later made famous by Saul Kripke, and there was a real, documented dispute about priority — including a notorious seminar exchange — which the historical record now resolves in her favour: the formula and the early framework are hers. The woman: <b>Ruth Barcan Marcus</b> earned her doctorate and published this work in the 1940s while the profession barely admitted women, raised four children, and spent a career insisting — correctly, and against resistance — on her own intellectual priority, eventually chairing philosophy at Yale. She gave logic its grip on <em>necessity and possibility</em> joined to <em>all and some</em>: the formal language in which we reason about how things <em>might have been</em>. ⚑ With her, the other half of the lineage stands: [[ada-lovelace]] · [[christine-ladd-franklin]] · [[rozsa-peter]] · [[julia-robinson]] · Barcan Marcus — first-rank logic done through walls. [[julia-robinson]] ←.</p>
+</section>
+
+<footer>
+  RUTH BARCAN MARCUS · LOGIKĒ XXIV · two-layer honest · the other half closes<br>
+  live possible-worlds model (set F per world×individual; ∀x□Fx ↔ □∀xFx always agree — the Barcan formula; ◇∀xFx vs ∀x◇Fx can split — order matters; verified)<br>
+  the first quantified modal logic (1946) · the Barcan formula ∀x□Fx → □∀xFx · direct reference / names as "tags" (anticipating Kripke) · first woman to chair Yale philosophy<br>
+  ← <a href="https://davidwise01.github.io/julia-robinson/">Robinson</a> · the other half of LOGIKĒ, restored to the lineage<br>
+  LOGIKĒ · the lineage of logical mathematics · governor David Lee Wise · CC-BY-ND-4.0
+</footer>
+</div>
+<script>
+"use strict";
+(function(){
+  const $=id=>document.getElementById(id);
+  const WN=['W₁','W₂','W₃'], IN=['a','b'];
+  // F[w][i]; start with the splitting model (a only in W1, b only in W2)
+  let F=[[1,0],[0,1],[0,0]];
+  function draw(){
+    $('worlds').innerHTML=WN.map((wn,w)=>{
+      const cells=IN.map((nm,i)=>'<div class="cellF'+(F[w][i]?' t':'')+'" data-w="'+w+'" data-i="'+i+'">F'+nm+'<br>'+(F[w][i]?'1':'0')+'</div>').join('');
+      return '<div class="world"><div class="wn">'+wn+'</div><div class="inds">'+cells+'</div></div>';
+    }).join('');
+    $('worlds').querySelectorAll('.cellF').forEach(c=>c.onclick=()=>{F[+c.dataset.w][+c.dataset.i]^=1;draw();});
+    const allW=[0,1,2], allI=[0,1];
+    const box=i=>allW.every(w=>F[w][i]);
+    const dia=i=>allW.some(w=>F[w][i]);
+    const forall_box=allI.every(i=>box(i));            // ∀x□Fx
+    const box_forall=allW.every(w=>allI.every(i=>F[w][i])); // □∀xFx
+    const dia_forall=allW.some(w=>allI.every(i=>F[w][i])); // ◇∀xFx
+    const forall_dia=allI.every(i=>dia(i));            // ∀x◇Fx
+    const tf=v=>'<b class="'+(v?'t':'f')+'">'+(v?'TRUE':'FALSE')+'</b>';
+    $('fb').outerHTML='<b class="'+(forall_box?'t':'f')+'" id="fb">'+(forall_box?'TRUE':'FALSE')+'</b>';
+    $('bf').outerHTML='<b class="'+(box_forall?'t':'f')+'" id="bf">'+(box_forall?'TRUE':'FALSE')+'</b>';
+    $('df').outerHTML='<b class="'+(dia_forall?'t':'f')+'" id="df">'+(dia_forall?'TRUE':'FALSE')+'</b>';
+    $('fd').outerHTML='<b class="'+(forall_dia?'t':'f')+'" id="fd">'+(forall_dia?'TRUE':'FALSE')+'</b>';
+    const eqB=(forall_box===box_forall);
+    $('relB').innerHTML=eqB?'<span style="color:var(--one)">they agree — the Barcan formula holds ✓</span>':'<span style="color:var(--amber)">(disagree — only possible with varying domains)</span>';
+    $('prBarcan').className='pr '+(eqB?'eq':'neq');
+    const eqO=(dia_forall===forall_dia);
+    $('relO').innerHTML=eqO?'<span style="color:var(--faint)">equal here — but not in general ↓</span>':'<span style="color:var(--amber)">they differ — ◇ and ∀ do NOT commute</span>';
+    $('prOrder').className='pr '+(eqO?'eq':'neq');
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
