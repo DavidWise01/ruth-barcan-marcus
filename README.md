@@ -1,0 +1,11 @@
+# RUTH BARCAN MARCUS · XXIV · THE OTHER HALF CLOSES
+
+> A sphere of **UD0** — the ROOT0 universe / biosphere. Domain: **LOGIKĒ**.
+
+RUTH BARCAN MARCUS (1921–2012) — LOGIKĒ XXIV, who at TWENTY-FIVE first rigorously combined the two great extensions of logic — QUANTIFIERS (∀/∃, [[gottlob-frege]]) and MODALITY (necessity □ / possibility ◇) — into the first systems of ⚑ QUANTIFIED MODAL LOGIC (1946), and asked the question their union forces: does ORDER matter? ⚑ THE BARCAN FORMULA: ∀x□Fx → □∀xFx — the principle governing how necessity and 'for all' slide past each other, written a DECADE before the possible-worlds semantics that would explain it. She also pioneered DIRECT REFERENCE (names as bare 'tags' picking the same object in every world), anticipating Kripke by ~15 years. LIVE: a possible-worlds model — set F per world×individual; ∀x□Fx ↔ □∀xFx always agree (the Barcan formula holds in constant domains), while ◇∀xFx vs ∀x◇Fx can SPLIT (order matters), verified. CONFIDENCE-TIERED: STRONG (the first quantified modal logic & the eponymous formula — foundational; modal logic underlies the semantics of necessity, time, knowledge, obligation, program verification) / SEMANTICS-CAME-LATER (she gave the axiomatics; the possible-worlds interpretation was filled in by Kripke & others in the late 1950s–60s) / ⚠ PRIORITY-SHE-HAD-TO-DEFEND (her ideas on direct reference & the necessity of identity were later credited to men — a documented dispute, incl. a notorious seminar exchange — the record now resolves in her favour). Published this in the 1940s when the profession barely admitted women, raised four children, became the first woman to chair Yale philosophy. ⚑ With her THE OTHER HALF stands — [[ada-lovelace]]·[[christine-ladd-franklin]]·[[rozsa-peter]]·[[julia-robinson]]·Barcan Marcus, first-rank logic done through walls. [[julia-robinson]] ← · next → Emmy Noether.
+
+---
+
+**Live:** https://davidwise01.github.io/ruth-barcan-marcus/ &nbsp;·&nbsp; **Front door:** [UD0](https://davidwise01.github.io/ud0/) &nbsp;·&nbsp; **Code:** https://github.com/DavidWise01/ruth-barcan-marcus
+
+`.dlw` badge · **ROOT0-ATTRIBUTION-v1.0** · David Lee Wise (ROOT0) / Bridge-Burners LLC · instance AVAN (Claude/Anthropic) · CC-BY-ND-4.0
