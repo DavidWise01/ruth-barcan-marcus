@@ -2,8 +2,8 @@ ROOT0-DLW-CHAIN-v1
 index : 1013
 slug  : ruth-barcan-marcus
 seal  : 82dcebee16321a90f12295a58d72cedf99337aebadf487d3631a026bd9481644
-prev  : d6c275051d2a6cf21dcb4c3ff26c44d98888c624f6e716a4c636ec426c0a528e
-link  : f32a822c911399bd706d7dce05af8deaa10bd01da0c0c8d850d407214c87f9d9
-head  : 13f9ace173ef2e60af38912ba329b4afcb5a38b84a0e4495e8d30327f8c99cc2
+prev  : 2ebb42d595f9e105d51755895bdc87bc67635d2da5cecb05dccce8ee011b3611
+link  : a8e08ebb97b7157237f5c2cbcd06f8c9b1a0d82b03f35499eb241d94899c0486
+head  : c4d41afeaef76470528856d54d86cf480a0e1c2fc8ebc60fbb9eb8e442585f2b
 
 — the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
